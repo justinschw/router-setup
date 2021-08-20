@@ -1,0 +1,40 @@
+{
+  "name": "router-setup",
+  "version": "1.0.0",
+  "description": "NPM library to set up a quick and easy linux router",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/justinschw/router-setup.git"
+  },
+  "keywords": [
+    "networking",
+    "linux",
+    "dnsmasq",
+    "hostapd",
+    "netplan",
+    "router",
+    "gateway",
+    "wifi"
+  ],
+  "author": "Justin Schwartzbeck (justinmschw@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/justinschw/router-setup/issues"
+  },
+  "homepage": "https://github.com/justinschw/router-setup#readme",
+  "dependencies": {
+    "dnsmasq-dhcp": "1.0.2",
+    "joi": "17.4.2",
+    "netmask": "2.0.2",
+    "netplan-config": "1.0.1"
+  },
+  "devDependencies": {
+    "chai": "4.3.4",
+    "mocha": "9.0.3",
+    "sinon": "11.1.2"
+  }
+}
