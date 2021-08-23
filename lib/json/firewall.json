@@ -1,0 +1,85 @@
+{
+  "createAll": [{
+    "sudo": true,
+    "table": "nat",
+    "new_chain": "ROUTER-INGRESS"
+  },{
+    "sudo": true,
+    "table": "nat",
+    "new_chain": "ROUTER-EGRESS"
+  },{
+    "sudo": true,
+    "new_chain": "ROUTER-FORWARD"
+  },{
+    "sudo": true,
+    "table": "nat",
+    "append": "PREROUTING",
+    "jump": "ROUTER-INGRESS"
+  },{
+    "sudo": true,
+    "table": "nat",
+    "append": "POSTROUTING",
+    "jump": "ROUTER-EGRESS"
+  },{
+    "sudo": true,
+    "append": "FORWARD",
+    "jump": "ROUTER-FORWARD"
+  }],
+
+  "deleteAll": [{
+    "sudo": true,
+    "table": "nat",
+    "delete": "PREROUTING",
+    "jump": "ROUTER-INGRESS"
+  },{
+    "sudo": true,
+    "table": "nat",
+    "delete": "POSTROUTING",
+    "jump": "ROUTER-EGRESS"
+  },{
+    "sudo": true,
+    "delete": "FORWARD",
+    "jump": "ROUTER-FORWARD"
+  },{
+    "sudo": true,
+    "table": "nat",
+    "delete_chain": "ROUTER-INGRESS"
+  },{
+    "sudo": true,
+    "table": "nat",
+    "delete_chain": "ROUTER-EGRESS"
+  },{
+    "sudo": true,
+    "delete_chain": "ROUTER-FORWARD"
+  }],
+
+  "egress": [{
+    "sudo": true,
+    "table": "nat",
+    "append": "ROUTER-EGRESS",
+    "out_interface": "WAN",
+    "jump": "MASQUERADE"
+  }],
+
+  "ingress": [{
+    "sudo": true,
+    "table": "nat",
+    "append": "ROUTER-INGRESS",
+    "source": "GATEWAY_IP",
+    "jump": "RETURN"
+  },{
+    "sudo": true,
+    "append": "ROUTER-FORWARD",
+    "in_interface": "WAN",
+    "out_interface": "LAN",
+    "match": "state",
+    "state": "RELATED,ESTABLISHED",
+    "jump": "ACCEPT"
+  },{
+    "sudo": true,
+    "append": "ROUTER-FORWARD",
+    "in_interface": "LAN",
+    "out_interface": "WAN",
+    "jump": "ACCEPT"
+  }]
+}

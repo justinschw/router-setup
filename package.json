@@ -28,6 +28,7 @@
   "homepage": "https://github.com/justinschw/router-setup#readme",
   "dependencies": {
     "dnsmasq-dhcp": "1.0.2",
+    "iptabler": "0.1.0",
     "joi": "17.4.2",
     "netmask": "2.0.2",
     "netplan-config": "1.0.1"
