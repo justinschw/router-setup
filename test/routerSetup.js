@@ -1,4 +1,12 @@
 'use strict';
+const mockRequire = require('mock-require');
+mockRequire('iptabler', function() {
+    return {
+        exec: function() {
+            return Promise.resolve();
+        }
+    }
+})
 const Router = require('../lib/routerSetup');
 const expect = require('chai').expect;
 
