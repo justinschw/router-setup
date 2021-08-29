@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/justinschw/router-setup#readme",
   "dependencies": {
+    "dhcpd-multi": "1.0.1",
     "dnsmasq-dhcp": "1.0.2",
     "hostapd-config": "1.0.2",
     "iptabler": "0.1.0",
