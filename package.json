@@ -33,14 +33,12 @@
     "joi": "17.4.2",
     "netmask": "2.0.2",
     "netplan-config": "1.0.2",
-    "router-setup": "1.0.0",
     "systemctl": "0.2.2"
   },
   "devDependencies": {
     "chai": "4.3.4",
     "memfs": "3.2.2",
     "mocha": "9.0.3",
-    "mock-require": "3.0.3",
     "sinon": "11.1.2"
   }
 }
