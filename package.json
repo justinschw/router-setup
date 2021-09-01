@@ -29,10 +29,11 @@
   "dependencies": {
     "dhcpd-multi": "1.0.1",
     "hostapd-config": "1.0.2",
-    "iptabler": "0.1.0",
+    "iptabler-smart": "1.0.1",
     "joi": "17.4.2",
     "netmask": "2.0.2",
     "netplan-config": "1.0.2",
+    "router-setup": "1.0.0",
     "systemctl": "0.2.2"
   },
   "devDependencies": {

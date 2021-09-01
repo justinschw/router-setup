@@ -9,15 +9,7 @@ memfs.mkdirSync('/etc/sysctl.d/', { recursive: true });
 const firewallContents = fs.readFileSync(`${__dirname}/../lib/json/firewall.json`, 'utf-8');
 memfs.writeFileSync(`${__dirname}/../lib/json/firewall.json`, firewallContents, 'utf-8');
 
-const mockRequire = require('mock-require');
-mockRequire('iptabler', function() {
-    return {
-        _args: [],
-        exec: function() {
-            return Promise.resolve();
-        }
-    }
-})
+const iptabler = require('iptabler-smart');
 const systemctl = require('systemctl');
 const Netplan = require('netplan-config');
 const DhcpServer = require('dhcpd-multi');
@@ -77,8 +69,11 @@ describe('/lib/routerSetup', function() {
             sandbox.stub(DhcpServer.prototype, 'deploy').resolves();
             sandbox.stub(Netplan.prototype, 'apply').resolves();
             sandbox.stub(systemctl, 'restart').resolves();
-            sandbox.stub(Router.prototype, 'getAllRules').resolves();
-            sandbox.stub(Router.prototype, 'applyRuleSafely').resolves();
+            sandbox.stub(iptabler.prototype, 'getAllRules').resolves();
+            sandbox.stub(iptabler.prototype, 'applyRuleSafely').resolves();
+            sandbox.stub(iptabler.prototype, 'applyRulesSafely').resolves();
+            sandbox.stub(iptabler.prototype, 'applyRule').resolves();
+            sandbox.stub(iptabler.prototype, 'applyRules').resolves();
         });
 
         afterEach(function() {
