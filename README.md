@@ -52,7 +52,7 @@ const router = new Router({
         beginIP: '192.168.5.2',
         endIP: '192.168.5.254',
         domain: 'guardian-angel.local',
-        nameservers: [8.8.8.8, 8.8.4.4]
+        nameservers: ['8.8.8.8', '8.8.4.4']
       },
       ip: '192.168.5.1'
     },
