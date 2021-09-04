@@ -6,6 +6,7 @@ const memfs = require('memfs');
 
 memfs.mkdirSync(`${__dirname}/../lib/json`, {recursive: true});
 memfs.mkdirSync('/etc/sysctl.d/', { recursive: true });
+memfs.mkdirSync('/etc/netplan', {recursive: true});
 const firewallContents = fs.readFileSync(`${__dirname}/../lib/json/firewall.json`, 'utf-8');
 memfs.writeFileSync(`${__dirname}/../lib/json/firewall.json`, firewallContents, 'utf-8');
 
